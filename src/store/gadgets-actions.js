@@ -141,3 +141,37 @@ export const addTag = ({ jwtoken, gadgetId, newTags }) => {
 
     }
 }
+
+
+export const addLinks = ({ jwtoken, gadgetId, newLinks }) => {
+    return async (dispatch) => {
+        const response = await axios.post(url + `/add-links`, {
+            jwtoken,
+            gadgetId,
+            newLinks,
+        })
+
+        const { data, message, status } = response.data;
+        if (status === 'error') {
+            console.error(data.message)
+        }
+        dispatch(gadgetsActions.setGadget(data.gadget))
+
+    }
+}
+
+export const removeLink = ({ jwtoken, link }) => {
+    return async (dispatch) => {
+        const response = await axios.post(url + `/remove-link`, {
+            jwtoken,
+            link
+        })
+
+        const { data, message, status } = response.data;
+        if (status === 'error') {
+            console.error(data.message)
+        }
+        dispatch(fetchGadget({ jwtoken }))
+    }
+}
+

@@ -1,6 +1,6 @@
 import Title from "components/Title";
 import { useDispatch, useSelector } from "react-redux";
-import { addTag, editName, editDescription, removeTag } from "store/gadgets-actions";
+import { addTag, editName, editDescription, removeTag, addLinks, removeLink } from "store/gadgets-actions";
 import classes from "assets/6-pages/Create/mini-pages/FillGadget.module.scss"
 import Button from "components/Button";
 import tagICON from "images/tag.png"
@@ -9,6 +9,7 @@ import saveICON from "images/save.png"
 import Input from "components/Input";
 import { useState } from "react";
 import Tag from "components/Tag";
+import Link from "components/Link";
 import React from "react";
 import Modal from "components/Modal";
 import { usePrompt } from "components/Hook";
@@ -26,11 +27,17 @@ const FillGadget = (props) => {
     const [description, setDescription] = useState('');
     const [unsaved, setUnsaved] = useState(false);
 
+    const [links, setLinks] = useState([])
+    const [newLinks, setNewLinks] = useState([])
+    const [linkName, setLinkName] = useState('')
+    const [linkUrl, setLinkUrl] = useState('')
+
 
     const saveOnClick = (e) => {
         dispatch(editName({ jwtoken, gadgetId: gadget.id, newName: name, history }))
         dispatch(editDescription({ jwtoken, gadgetId: gadget.id, newDescription: description }))
         dispatch(addTag({ jwtoken, gadgetId: gadget.id, newTags: newTags }))
+        dispatch(addLinks({ jwtoken, gadgetId: gadget.id, newLinks: newLinks }))
         setUnsaved(false)
     }
 
@@ -42,6 +49,7 @@ const FillGadget = (props) => {
             setName(gadget.name)
             setDescription(gadget.description)
             setTags(gadget.tags)
+            setLinks(gadget.links)
         }
     }, [gadget])
 
@@ -49,9 +57,19 @@ const FillGadget = (props) => {
         dispatch(removeTag({jwtoken, tag: id}))
     }
 
-    const tagsList = tags.map((tag) => {
+    const deleteLink = (name, id) => {
+        dispatch(removeLink({ jwtoken, link: id }))
+    }
+
+    const tagsList = tags?.map((tag) => {
         return (
             <Tag key={Math.random()} onClick={deleteTag} text={tag.name} id={tag.id}/>
+        )
+    })
+
+    const linksList = links?.map((link) => {
+        return (
+            <Link key={Math.random()} onClick={deleteLink} url={link.url} text={link.name} id={link.id} />
         )
     })
 
@@ -86,6 +104,24 @@ const FillGadget = (props) => {
                 }}
             />
             <div className={classes['tags-container']}>{tagsList}</div>
+
+
+            <div className={classes['link-section']}>
+                <p>Add Link</p>
+                <div></div>
+                <input value={linkName} onChange={(e) => {setLinkName(e.target.value)}} />
+                <input value={linkUrl} onChange={(e) => { setLinkUrl(e.target.value) }} />
+                <button onClick={(e) => {
+                    setLinks(links => [...links, { name: linkName, url:linkUrl, id: 'new' }]);
+                    setNewLinks(newLinks => [...newLinks, {name: linkName, url: linkUrl}])
+                    setUnsaved(true)
+                }}>Confirm</button>
+                <div className={classes['links-container']}>
+                    {linksList}
+                </div>
+            </div>
+ 
+
             <img src={saveICON} className={classes['save-button']} onClick={saveOnClick} />
         </section>
     )

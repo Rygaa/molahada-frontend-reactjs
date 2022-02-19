@@ -13,6 +13,7 @@ const CreateTitle = (props) => {
     const [title, setTitle] = React.useState('')
     const jwtoken = useSelector((state) => state.user.jwtoken);
     const history = useHistory();
+    
     const nextOnClick = async (e) => {
         const success = await dispatch(createNewGadget({jwtoken, name: title, history}))
         if (success) {
