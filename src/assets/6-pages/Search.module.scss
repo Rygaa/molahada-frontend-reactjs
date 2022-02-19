@@ -1,0 +1,72 @@
+@import '/src/assets/1-helpers/color.module';
+@import '/src/assets/1-helpers/font.module';
+
+
+
+.search-section {
+    background-color: $color1;
+    margin: 2.5% auto;
+    padding: 0rem 3rem;
+    padding-bottom: 1.5rem;
+    border: 1px solid $stroke-color1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content min-content 1fr;
+    row-gap: 2.5rem;
+}
+
+
+
+.filter-container {
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1.5rem;
+}
+
+.gadgets-container {
+    width: 25rem;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-items: flex-start;
+    overflow-y: scroll;
+    row-gap: 1rem;
+    margin-bottom: 1.5rem;
+    height: 25rem;
+    &::-webkit-scrollbar {
+        width: .5rem;
+        background-color: $color1;
+        outline: 1.5px solid $stroke-color1;
+        border-radius: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $stroke-color1;
+        border-radius: 5px;
+    }
+
+}
+
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    row-gap: .75rem;
+
+    p {
+        @include M1();
+        color: $font-color4;
+        text-align: center;
+    }
+    div {
+        background-color: $stroke-color1;
+        width: 90%;
+        margin: 0% 5%;
+        height: 2px;
+    }
+}
+

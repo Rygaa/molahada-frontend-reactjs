@@ -1,0 +1,29 @@
+@import '/src/assets/1-helpers/color.module';
+@import '/src/assets/1-helpers/font.module';
+
+
+.Checkbox {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+    width: 1.875rem;
+    height: 1.875rem;
+    border: 1px solid $stroke-color1;
+    background-color: $color1;
+    border-radius: 5px;
+    margin-right: .5rem;
+    cursor: pointer;
+    > img {
+        width: 0.938rem;
+        height: 0.938rem;
+    }
+}
+
+.container {
+    display: flex;
+    p {
+        @include R6();
+        align-self: center;
+    }
+}

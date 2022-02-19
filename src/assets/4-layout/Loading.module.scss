@@ -1,0 +1,26 @@
+
+@import '/src/assets/main.scss' ;
+
+.container {
+    position: absolute;
+    top: calc(50% - 150px);
+    right: calc(50% - 150px);
+    display: grid;
+    grid-template-columns: 35% 50%;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    
+}
+
+
+.motion {
+
+}
+
+
+.text {
+    @include B1();
+    color: $font-color1;
+}
+

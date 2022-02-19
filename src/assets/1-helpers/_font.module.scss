@@ -1,0 +1,161 @@
+
+p {
+    margin: 0;
+    padding: 0;
+    letter-spacing: 0.05em;
+}
+
+// Regular
+@mixin R1 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.875rem;
+    line-height: 35px;
+}
+@mixin R2 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.5625rem;
+    line-height: 29px;
+}
+@mixin R3 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.25rem;
+    line-height: 23px;
+}
+@mixin R4 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.0938rem;
+    line-height: 21px;
+}
+@mixin R5 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: .9375rem;
+    line-height: 18px;
+}
+@mixin R6 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: .7813rem;
+    line-height: 15px;
+}
+@mixin R7 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: .625rem;
+    line-height: 12px;
+}
+
+
+// Medium
+@mixin M1 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.875rem;
+    line-height: 35px;
+}
+@mixin M2 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.5625rem;
+    line-height: 29px;
+}
+@mixin M3 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 23px;
+}
+@mixin M4 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.0938rem;
+    line-height: 21px;
+}
+@mixin M5 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: .9375rem;
+    line-height: 18px;
+}
+@mixin M6 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: .7813rem;
+    line-height: 15px;
+}
+@mixin M7 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: .625rem;
+    line-height: 12px;
+}
+
+
+//Bold
+@mixin B1 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.875rem;
+    line-height: 35px;
+}
+@mixin B2 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.5625rem;
+    line-height: 29px;
+}
+@mixin B3 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.25rem;
+    line-height: 23px;
+}
+@mixin B4 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.0938rem;
+    line-height: 21px;
+}
+@mixin B5 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: .9375rem;
+    line-height: 18px;
+}
+@mixin B6 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: .7813rem;
+    line-height: 15px;
+}
+@mixin B7 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: .625rem;
+    line-height: 12px;
+}

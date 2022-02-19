@@ -1,0 +1,40 @@
+@import '/src/assets/1-helpers/color.module';
+@import '/src/assets/1-helpers/font.module';
+
+.search-section {
+    background-color: $color1;
+    border: 1px solid $stroke-color1;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.5rem;
+    padding: 2.5rem 2.5rem;
+    padding-top: 0rem;
+    > img {
+        width: 7.5rem;
+        height: 7.5rem;
+        align-self: center;
+    }
+
+    > div:nth-child(2) {}
+}
+.title-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2.5rem;
+    // row-gap: .75rem;
+    margin-bottom: 1.5rem;
+
+    p {
+        @include M1();
+        color: $font-color4;
+        text-align: center;
+    }
+    div {
+        background-color: $stroke-color1;
+        width: 90%;
+        margin: 0% 5%;
+        height: 2px;
+    }
+}
+

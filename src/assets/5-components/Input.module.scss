@@ -1,0 +1,102 @@
+@import '/src/assets/1-helpers/color.module';
+@import '/src/assets/1-helpers/font.module';
+
+.input-container {
+    
+    // Placement
+    width: 25rem;
+    height: 3.125rem;
+    display: grid;
+    grid-template-columns: 15% min-content auto min-content;
+    align-items: center;
+
+    // Styling
+    background: #2F2F2F;
+    border: 1.5px solid #3A3A3A;
+    box-sizing: border-box;
+    border-radius: 5px;
+    transition: .3s;
+
+
+    img {
+
+        // Placement
+        width: 1.25rem;
+        height: 1.25rem;
+        justify-self: center;
+
+        // Styling
+        opacity: .5;
+        transition: 2s;
+
+    }
+
+    div {
+
+        // Placement
+        width: 2px;
+        height: 80%;
+
+        // Styling
+        background-color: #3A3A3A;
+        border-radius: 50px;
+        transition: .3s;
+
+    }
+
+    input {
+
+        // Placement
+        margin-left: 1rem;
+        height: 100%;
+
+        // Styling
+        background-color: transparent;
+        border: none;
+        color: $font-color2;
+        @include R5();
+
+        //&::
+        &::placeholder { color: $font-color4; transition: .15s }
+
+
+    }
+
+    button {
+
+        // Placement
+        width: 7.5rem;
+        height: 75%;
+        margin-right: .5rem;
+
+        // Styling
+        background-color: $color1;
+        border: none;
+        color: white;
+        @include M6();
+        border-radius: 5px;
+        color: $color3;
+
+    }
+
+}
+
+
+.input-container:hover {
+    border: 1.5px solid #494949;
+    img {}
+    div {}
+    input {}
+    button {}
+}
+
+.input-container:focus-within {
+    border: 1.5px solid #5c5c5c;
+    div { background-color: #494949; }
+    input {
+        outline: none;
+        &::placeholder { color: transparent; }
+    }
+    img { opacity: .75; }
+    button {}
+}

@@ -1,0 +1,132 @@
+@import '/src/assets/1-helpers/color.module';
+@import '/src/assets/1-helpers/font.module';
+
+
+.modal-buttons {
+    width: 200px;
+    background-color: red;
+}
+
+
+.fill-gadget {
+    // width: 90%;
+    padding: 1rem 5%;
+    padding-top: 0rem;
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows:  min-content min-content min-content min-content 1fr;
+    border: 1px solid $stroke-color1;
+    margin-bottom: 5rem;
+    // background-color: rgba(green, 15%);
+    overflow-y: scroll;
+    position: relative;
+
+
+    &::-webkit-scrollbar {
+        width: .5rem;
+        background-color: $color1;
+        outline: 1.5px solid $stroke-color1;
+        border-radius: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $stroke-color1;
+        border-radius: 5px;
+
+    }
+
+    > div:nth-child(1) {
+        
+    }
+
+    > div:nth-child(2) {
+        justify-self: center;
+
+    }
+
+    > textarea:nth-child(3) {
+                
+        resize: none;
+        width: 25rem;
+        justify-self: center;
+        height: 15rem;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        border-radius: 5px;
+        background-color: $color1;
+        border: 1.5px solid $stroke-color1;
+        padding: 0;
+        box-sizing: border-box;
+        transition: .5s;
+        color: $font-color1;
+        padding: 1rem;
+        &:focus {
+            outline: none;
+            border: 1.5px solid $stroke-color2;
+
+        }
+    }
+
+
+    > div:nth-child(4) {
+        justify-self: center;
+
+    }
+}
+
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2.5rem;
+    row-gap: .75rem;
+    margin-bottom: 2.5rem;
+    
+    p {
+        @include M1();
+        color: $font-color4;
+        text-align: center;
+    }
+    div {
+        background-color: $stroke-color1;
+        width: 90%;
+        margin: 0% 5%;
+        height: 2px;
+    }
+}
+
+.tags-container {
+    justify-self: center;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    margin-top: 1rem;
+    overflow-y: scroll;
+    min-width: 25rem;
+    margin-bottom: 2rem;
+    margin-top: 1.5rem;
+
+    &::-webkit-scrollbar {
+        width: 7.5px;
+        background-color: $color1;
+        outline: 1.5px solid $stroke-color1;
+        border-radius: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $stroke-color1;
+        border-radius: 5px;
+    }
+
+    
+}
+
+
+.save-button {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    position: absolute;
+    right: 5%;
+    top: 2.5%;
+}

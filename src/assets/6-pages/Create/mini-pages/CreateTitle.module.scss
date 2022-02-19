@@ -1,0 +1,44 @@
+
+@import '/src/assets/1-helpers/color.module';
+@import '/src/assets/1-helpers/font.module';
+
+.CreateTitle {
+    background-color: $color1;
+    border: 1px solid $stroke-color1;
+    align-self: center;
+    padding: 1rem 10%;
+    padding-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2.5rem;
+    row-gap: .75rem;
+    width: 100%;
+
+    p {
+        @include M1();
+        color: $font-color4;
+        text-align: center;
+    }
+    div {
+        background-color: $stroke-color1;
+        width: 90%;
+        margin: 0% 5%;
+        height: 2px;
+    }
+}
+
+
+.Input {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+}
+
+.Button {
+}

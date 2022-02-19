@@ -1,0 +1,62 @@
+@import '/src/assets/1-helpers/color.module';
+@import '/src/assets/1-helpers/font.module';
+
+
+.Button {
+
+    // Placement
+    width: 25rem;
+    height: 3.75rem;
+
+    // Styling
+    background-color: $color4;
+    color: $font-color1;
+    border: none;
+    @include B3();
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1.5px solid transparent; 
+    transition: .5s;
+
+    // &::
+    &:hover { animation: button-animation-hover 1s; }   
+    &:focus-within {
+        animation: button-animation-focus 1s;
+        outline: none;
+    }
+}
+
+.Button:disabled {
+    background-color: $color2;
+    cursor:not-allowed;
+}
+
+@keyframes button-animation-hover {
+    0% {
+        transform: rotate(0deg);  
+    }
+    25% {
+        transform: rotate(1deg);    
+    }
+    50% {
+        transform: rotate(-1deg);    
+    }
+    100% {
+        transform: rotate(0deg);   
+    }
+}
+
+@keyframes button-animation-focus {
+    0% {
+        transform: rotate(0deg);  
+    }
+    25% {
+        transform: rotate(2.5deg);    
+    }
+    50% {
+        transform: rotate(-2.5deg);    
+    }
+    100% {
+        transform: rotate(0deg);   
+    }
+}

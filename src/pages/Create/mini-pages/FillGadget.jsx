@@ -1,0 +1,95 @@
+import Title from "components/Title";
+import { useDispatch, useSelector } from "react-redux";
+import { addTag, editName, editDescription, removeTag } from "store/gadgets-actions";
+import classes from "assets/6-pages/Create/mini-pages/FillGadget.module.scss"
+import Button from "components/Button";
+import tagICON from "images/tag.png"
+import titleICON from "images/title.png"
+import saveICON from "images/save.png"
+import Input from "components/Input";
+import { useState } from "react";
+import Tag from "components/Tag";
+import React from "react";
+import Modal from "components/Modal";
+import { usePrompt } from "components/Hook";
+import { useHistory } from 'react-router-dom';
+
+const FillGadget = (props) => {
+    const dispatch = useDispatch();
+    const jwtoken = useSelector((state) => state.user.jwtoken);
+    const gadget = useSelector((state) => state.gadgets.gadget);
+    const history = useHistory();
+    const [tag, setTag] = useState('');
+    const [tags, setTags] = useState([])
+    const [newTags, setNewTags] = useState([])
+    const [name, setName] = useState('');
+    const [description, setDescription] = useState('');
+    const [unsaved, setUnsaved] = useState(false);
+
+
+    const saveOnClick = (e) => {
+        dispatch(editName({ jwtoken, gadgetId: gadget.id, newName: name, history }))
+        dispatch(editDescription({ jwtoken, gadgetId: gadget.id, newDescription: description }))
+        dispatch(addTag({ jwtoken, gadgetId: gadget.id, newTags: newTags }))
+        setUnsaved(false)
+    }
+
+    // usePrompt('All unsaved changed will be lost?', unsaved)
+    
+
+    React.useEffect(() => {
+        if (gadget) {
+            setName(gadget.name)
+            setDescription(gadget.description)
+            setTags(gadget.tags)
+        }
+    }, [gadget])
+
+    const deleteTag = (name, id) => {
+        dispatch(removeTag({jwtoken, tag: id}))
+    }
+
+    const tagsList = tags.map((tag) => {
+        return (
+            <Tag key={Math.random()} onClick={deleteTag} text={tag.name} id={tag.id}/>
+        )
+    })
+
+    return (
+        <section className={classes['fill-gadget']}>
+            <Title
+                title={'CREATE A NEW GADGET'}
+                containerClassname={classes['title-container']}
+            />
+            <Input
+                image={titleICON}
+                placeholder={'Name'}
+                containerClassname={classes['Input']}
+                value={name}
+                onChange={(e) => { setName(e); setUnsaved(true) }}
+            />
+            <textarea 
+                value={description} 
+                onChange={(e) => { setDescription(e.target.value); setUnsaved(true) }}
+            />
+            <Input
+                image={tagICON}
+                placeholder={'Tag'}
+                containerClassname={classes['Input']}
+                value={tag}
+                button={true}
+                onChange={(e) => { setTag(e) }}
+                onClick={(e) => { 
+                    setTags(tags => [...tags, {name: tag, id:'new'}]); 
+                    setNewTags(newTags => [...newTags, tag])
+                    setUnsaved(true)
+                }}
+            />
+            <div className={classes['tags-container']}>{tagsList}</div>
+            <img src={saveICON} className={classes['save-button']} onClick={saveOnClick} />
+        </section>
+    )
+}
+
+
+export default FillGadget;

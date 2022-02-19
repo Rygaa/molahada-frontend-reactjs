@@ -1,0 +1,51 @@
+@import '/src/assets/1-helpers/color.module';
+@import '/src/assets/1-helpers/font.module';
+
+.Signup {
+    display: flex;
+    flex-direction: column;
+    background-color: $color1;
+    border-right: 1.5px solid $stroke-color1;
+    height: 100%;
+    padding: 0rem 5rem;
+    justify-content: center;
+    > p:nth-child(1) {
+        @include M1;
+        color: $font-color2;
+    }
+    > p:nth-child(2) {
+        margin-top: .8rem;
+        margin-bottom: 2.25rem;
+        @include R4;
+        color: $font-color3;
+        > a {
+            color: $color4;
+            text-decoration: none;
+        }
+    }
+    // First input
+    > div:nth-child(3) { margin-bottom: 1.75rem; }
+    // Second input
+    > div:nth-child(4) { margin-bottom: 1.75rem; }
+    // Third input
+    > div:nth-child(5) { margin-bottom: 2.5rem; }
+    // First Checkbox
+    > div:nth-child(6) { margin-bottom: 1.5rem; }
+}
+
+.Checkbox-Paragraph {
+    color: $font-color3;
+
+    a {
+        color: $color4;
+        text-decoration: none;
+    }
+}
+
+
+@media (max-width: 700px) {
+    .Signup {
+        border: none;
+        margin: auto;
+    }
+}
