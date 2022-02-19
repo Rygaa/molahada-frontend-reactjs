@@ -69,7 +69,7 @@ const App = (props) => {
               <Route path="/search"><Search /></Route>
               <Route path="/create"><Create /></Route>
               <Route path="/edit/:gadget_name"><Create /></Route>
-              <Route path="/view/:gadget_name"><ViewGadget /></Route>
+              <Route path="/view/:gadget_name"><Create /></Route>
               <Route path="/myProfile"><MyProfile /></Route>
             </Switch>
           }

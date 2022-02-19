@@ -1,157 +1,126 @@
 @import '/src/assets/1-helpers/color.module';
 @import '/src/assets/1-helpers/font.module';
-
-
-.modal-buttons {
-    width: 200px;
-    background-color: red;
-}
+@import '/src/assets/1-helpers/scrollbar.module';
 
 
 .fill-gadget {
-    // width: 90%;
-    padding: 1rem 5%;
-    padding-top: 0rem;
-    margin-top: 5%;
+
+    // Placement
+    position: relative;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows:  min-content min-content min-content min-content 1fr;
-    border: 1px solid $stroke-color1;
+    margin-top: 5%;
     margin-bottom: 5rem;
-    // background-color: rgba(green, 15%);
+
+    // Styling
+    padding: 1rem 5%;
+    padding-top: 0rem;
+    border: 1px solid $stroke-color1;
     overflow-y: scroll;
-    position: relative;
 
+    // &::
+    @include  webkit-scrollbar--(.5rem);
 
-    &::-webkit-scrollbar {
-        width: .5rem;
-        background-color: $color1;
-        outline: 1.5px solid $stroke-color1;
-        border-radius: 5px;
-    }
-    &::-webkit-scrollbar-thumb {
-        background-color: $stroke-color1;
-        border-radius: 5px;
+}
 
-    }
+.name-section {
 
-    > div:nth-child(1) {
-        
-    }
+    // Placement
+    // HAHAHAHAHHA
+    // HAHAHAHAHHA
+    // HAHAHAHAHHA
+    // Styling
+    // HAHAHAHAHHA
+    // HAHAHAHAHHA
+    // HAHAHAHAHHA
 
-    > div:nth-child(2) {
+}
+
+.description-section {
+    > textarea {
+
+        // Placement 
         justify-self: center;
-
-    }
-
-    > textarea:nth-child(3) {
-                
-        resize: none;
         width: 25rem;
-        justify-self: center;
         height: 15rem;
         margin-top: 1rem;
         margin-bottom: 2rem;
+
+        // Styling
+        padding: 0;
+        resize: none;
+        padding: 1rem;
+        transition: .5s;
+        box-sizing: border-box;
         border-radius: 5px;
+        color: $font-color1;
         background-color: $color1;
         border: 1.5px solid $stroke-color1;
-        padding: 0;
-        box-sizing: border-box;
-        transition: .5s;
-        color: $font-color1;
-        padding: 1rem;
+
+        // &::
         &:focus {
             outline: none;
             border: 1.5px solid $stroke-color2;
-
         }
+        
     }
 
+}
+.tags-section {
 
-    > div:nth-child(4) {
+    > div:nth-child(2) {
+
+        // Placement
+        display: flex;
+        flex-direction: column;
         justify-self: center;
+        height: 20rem;
+        margin-top: 1rem;
+        min-width: 25rem;
+        margin-bottom: 2rem;
+        margin-top: 1.5rem;
+
+        // Styling
+        row-gap: 1rem;
+        overflow-y: scroll;
+
+        // &::
+        @include  webkit-scrollbar--(7.5px);
 
     }
+
 }
 
 
-.title-container {
+.links-section { 
     display: flex;
     flex-direction: column;
-    margin-top: 2.5rem;
-    row-gap: .75rem;
-    margin-bottom: 2.5rem;
-    
-    p {
-        @include M1();
-        color: $font-color4;
-        text-align: center;
-    }
-    div {
-        background-color: $stroke-color1;
-        width: 90%;
-        margin: 0% 5%;
-        height: 2px;
-    }
-}
 
-.tags-container {
-    justify-self: center;
-    height: 20rem;
-    display: flex;
-    flex-direction: column;
-    row-gap: 1rem;
-    margin-top: 1rem;
-    overflow-y: scroll;
-    min-width: 25rem;
-    margin-bottom: 2rem;
-    margin-top: 1.5rem;
-
-    &::-webkit-scrollbar {
-        width: 7.5px;
-        background-color: $color1;
-        outline: 1.5px solid $stroke-color1;
-        border-radius: 5px;
-    }
-    &::-webkit-scrollbar-thumb {
-        background-color: $stroke-color1;
-        border-radius: 5px;
-    }
-
-    
-}
-
-
-.save-button {
-    width: 25px;
-    height: 25px;
-    object-fit: contain;
-    position: absolute;
-    right: 5%;
-    top: 2.5%;
-}
-
-
-
-.link-section {
-    display: flex;
-    flex-direction: column;
     > p {
         color: $font-color1;
         @include M4();
     }
+
     > div:nth-child(2) {
-        background-color: $stroke-color2;
+
+        // Placement
         width: 100%;
         height: 1px;
         margin-top: .5rem;
         margin-bottom: 1rem;
+
+        // Styling
+        background-color: $stroke-color2;
+
     }
+
     > input {
-        margin-bottom: 1rem;
+
         // Placement
         width: 25rem;
         height: 2.125rem;
+        margin-bottom: 1rem;
 
         // Styling
         background: #2F2F2F;
@@ -161,42 +130,56 @@
         transition: .3s;
         color: $font-color1;
         padding-left: .5rem;
+
+        // &::
         &:focus {
             outline: none;
         }
+
     }
+
     > button {
+
+        // Styling
         background-color: $color2;
         border: none;
         color: $color3;
         @include B4();
         padding: 1rem 0;
         cursor: pointer;
-    }
-}
 
-.links-container {
-    height: 20rem;
-    overflow: auto;
-    display: flex;
-    flex-direction: column;
-    margin-top: 1rem;
-    row-gap: 1rem;
+    }
     
-    &::-webkit-scrollbar {
-        width: 7.5px;
-        background-color: $color1;
-        outline: 1.5px solid $stroke-color1;
-        border-radius: 5px;
-    }
-    &::-webkit-scrollbar-thumb {
-        background-color: $stroke-color1;
-        border-radius: 5px;
+    > div:nth-child(6) {
+
+        // Placement
+        height: 20rem;
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+
+        // Styling
+        overflow: auto;
+        row-gap: 1rem;
+    
+        // &::
+        @include  webkit-scrollbar--(7.5px);
+
     }
 }
 
-.Input-Link {
-    width: 25rem;
-    height: 2.5rem;
-    margin-top: 1rem;
+
+.save-button {
+
+    // Placement
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    right: 5%;
+    top: 2.5%;
+
+    // Styling
+    object-fit: contain;
+
 }
+

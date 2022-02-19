@@ -1,0 +1,27 @@
+@import '/src/assets/1-helpers/color.module';
+@import '/src/assets/1-helpers/font.module';
+
+.title-section {
+
+    // Placement
+    display: flex;
+    flex-direction: column;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+
+    // Styling
+    row-gap: .75rem;
+    
+    p {
+        @include M1();
+        color: $font-color4;
+        text-align: center;
+    }
+    div {
+        background-color: $stroke-color1;
+        width: 90%;
+        margin: 0% 5%;
+        height: 2px;
+    }
+    
+}

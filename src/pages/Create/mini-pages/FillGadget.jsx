@@ -11,7 +11,6 @@ import { useState } from "react";
 import Tag from "components/Tag";
 import Link from "components/Link";
 import React from "react";
-import Modal from "components/Modal";
 import { usePrompt } from "components/Hook";
 import { useHistory } from 'react-router-dom';
 
@@ -20,13 +19,18 @@ const FillGadget = (props) => {
     const jwtoken = useSelector((state) => state.user.jwtoken);
     const gadget = useSelector((state) => state.gadgets.gadget);
     const history = useHistory();
+    const [unsaved, setUnsaved] = useState(false);
+
+    // Tags
     const [tag, setTag] = useState('');
     const [tags, setTags] = useState([])
     const [newTags, setNewTags] = useState([])
+
+    // Name & Description
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
-    const [unsaved, setUnsaved] = useState(false);
 
+    // Links
     const [links, setLinks] = useState([])
     const [newLinks, setNewLinks] = useState([])
     const [linkName, setLinkName] = useState('')
@@ -53,23 +57,29 @@ const FillGadget = (props) => {
         }
     }, [gadget])
 
-    const deleteTag = (name, id) => {
-        dispatch(removeTag({jwtoken, tag: id}))
-    }
-
-    const deleteLink = (name, id) => {
-        dispatch(removeLink({ jwtoken, link: id }))
-    }
+    const deleteTag = (name, id) => { dispatch(removeTag({jwtoken, tag: id})) }
+    const deleteLink = (name, id) => { dispatch(removeLink({ jwtoken, link: id })) }
 
     const tagsList = tags?.map((tag) => {
         return (
-            <Tag key={Math.random()} onClick={deleteTag} text={tag.name} id={tag.id}/>
+            <Tag 
+                key={Math.random()} 
+                onClick={deleteTag}
+                text={tag.name} 
+                id={tag.id}
+            />
         )
     })
 
     const linksList = links?.map((link) => {
         return (
-            <Link key={Math.random()} onClick={deleteLink} url={link.url} text={link.name} id={link.id} />
+            <Link 
+                key={Math.random()} 
+                onClick={deleteLink}
+                url={link.url} 
+                text={link.name} 
+                id={link.id} 
+            />
         )
     })
 
@@ -77,49 +87,54 @@ const FillGadget = (props) => {
         <section className={classes['fill-gadget']}>
             <Title
                 title={'CREATE A NEW GADGET'}
-                containerClassname={classes['title-container']}
+                containerClassname={classes['title-section']}
             />
-            <Input
-                image={titleICON}
-                placeholder={'Name'}
-                containerClassname={classes['Input']}
-                value={name}
-                onChange={(e) => { setName(e); setUnsaved(true) }}
-            />
-            <textarea 
-                value={description} 
-                onChange={(e) => { setDescription(e.target.value); setUnsaved(true) }}
-            />
-            <Input
-                image={tagICON}
-                placeholder={'Tag'}
-                containerClassname={classes['Input']}
-                value={tag}
-                button={true}
-                onChange={(e) => { setTag(e) }}
-                onClick={(e) => { 
-                    setTags(tags => [...tags, {name: tag, id:'new'}]); 
-                    setNewTags(newTags => [...newTags, tag])
-                    setUnsaved(true)
-                }}
-            />
-            <div className={classes['tags-container']}>{tagsList}</div>
-
-
-            <div className={classes['link-section']}>
+            <div className={classes['name-section']}>
+                <Input
+                    image={titleICON}
+                    placeholder={'Name'}
+                    containerClassname={classes['Input']}
+                    value={name}
+                    onChange={(e) => { setName(e); setUnsaved(true) }}
+                />
+            </div>
+            <div className={classes['description-section']}>
+                <textarea
+                    value={description}
+                    onChange={(e) => { setDescription(e.target.value); setUnsaved(true) }}
+                />
+            </div>
+            <div className={classes['tags-section']}>
+                <Input
+                    image={tagICON}
+                    placeholder={'Tag'}
+                    containerClassname={classes['Input']}
+                    value={tag}
+                    button={true}
+                    onChange={(e) => { setTag(e) }}
+                    onClick={(e) => {
+                        setTags(tags => [...tags, { name: tag, id: 'new' }]);
+                        setNewTags(newTags => [...newTags, tag])
+                        setUnsaved(true)
+                    }}
+                />
+                <div>{tagsList}</div>
+            </div>
+            <div className={classes['links-section']}>
                 <p>Add Link</p>
                 <div></div>
-                <input value={linkName} onChange={(e) => {setLinkName(e.target.value)}} />
+                <input value={linkName} onChange={(e) => { setLinkName(e.target.value) }} />
                 <input value={linkUrl} onChange={(e) => { setLinkUrl(e.target.value) }} />
                 <button onClick={(e) => {
-                    setLinks(links => [...links, { name: linkName, url:linkUrl, id: 'new' }]);
-                    setNewLinks(newLinks => [...newLinks, {name: linkName, url: linkUrl}])
+                    setLinks(links => [...links, { name: linkName, url: linkUrl, id: 'new' }]);
+                    setNewLinks(newLinks => [...newLinks, { name: linkName, url: linkUrl }])
                     setUnsaved(true)
                 }}>Confirm</button>
                 <div className={classes['links-container']}>
                     {linksList}
                 </div>
             </div>
+     
  
 
             <img src={saveICON} className={classes['save-button']} onClick={saveOnClick} />

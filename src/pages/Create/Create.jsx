@@ -11,21 +11,32 @@ const Create = (props) => {
     const dispatch = useDispatch()
     const jwtoken = useSelector((state) => state.user.jwtoken);
 
-    const nextStep = () => {
-        setStep(step => step + 1)
-    }
 
     React.useEffect(() => {
         if (window.location.pathname != '/create') {
-            setStep(1);
             dispatch(fetchGadget({ jwtoken }))
         }
     }, [])
 
+    
+    const whichView = () => {
+        const path = window.location.pathname;
+        console.log(path)
+        if (path.includes('/create')) {
+            return <CreateTitle />
+        } else if (path.includes('edit')) {
+            return <FillGadget gadgetId={'hahahah'}></FillGadget>
+        } else if (path.includes('view')) {
+            return <FillGadget gadgetId={'hahahah'}></FillGadget>
+        }
+   
+    }
+
+    const view = whichView();
+
     return (
         <section className={classes['Create']}>
-            {step == 0 && <CreateTitle nextStep={nextStep}/>}
-            {step == 1 && <FillGadget gadgetId={'hahahah'}></FillGadget>}
+            {view}
         </section>
     )
 }
