@@ -43,7 +43,7 @@ const MobileSidebar = (props) => {
                 <div>
                     <SidebarButton image={plusIMG} path={'/create'} />
                     <SidebarButton image={searchIMG} path={'/search'} />
-                    <SidebarButton image={profileIMG} path={'myProfile'} />
+                    <SidebarButton image={profileIMG} path={'/myProfile'} />
                 </div>
                 <SidebarButton image={logoutIMG} color={'red'} onClick={disconnectButtonOnClick} />
             </div>

@@ -29,7 +29,7 @@ const DesktopSidebar = (props) => {
             <div>
                 <SidebarButton text={'CREATE'} sidebarRef={sidebarRef} image={plusIMG} path={'/create'} />
                 <SidebarButton text={'SEARCH'} sidebarRef={sidebarRef} image={searchIMG} path={'/search'} />
-                <SidebarButton text={'PROFILE'} sidebarRef={sidebarRef} image={profileIMG} path={'myProfile'} />
+                <SidebarButton text={'PROFILE'} sidebarRef={sidebarRef} image={profileIMG} path={'/myProfile'} />
             </div>
             <SidebarButton text={'LOGOUT'} sidebarRef={sidebarRef} image={logoutIMG} color={'red'} onClick={disconnectButtonOnClick} />
         </motion.div>
