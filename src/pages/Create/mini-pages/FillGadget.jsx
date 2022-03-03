@@ -90,6 +90,8 @@ const FillGadget = (props) => {
                 containerClassname={classes['title-section']}
             />
             <div className={classes['name-section']}>
+                <p>Edit name</p>
+                <div></div>
                 <Input
                     image={titleICON}
                     placeholder={'Name'}
@@ -99,12 +101,16 @@ const FillGadget = (props) => {
                 />
             </div>
             <div className={classes['description-section']}>
+                <p>Edit description</p>
+                <div></div>
                 <textarea
                     value={description}
                     onChange={(e) => { setDescription(e.target.value); setUnsaved(true) }}
                 />
             </div>
             <div className={classes['tags-section']}>
+                <p>Add Tag</p>
+                <div></div>
                 <Input
                     image={tagICON}
                     placeholder={'Tag'}

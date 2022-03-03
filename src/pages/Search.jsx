@@ -28,6 +28,7 @@ const Search = (props) => {
     const jwtoken = useSelector((state) => state.user.jwtoken);
     const [filterTags, setFilterTags] = React.useState('');
     const [tag, setTag] = React.useState('');
+    const [title, setTitle] = React.useState('');
     React.useEffect(() => {
         dispatch(fetchGadgets({ jwtoken }))
     }, [])
@@ -48,7 +49,10 @@ const Search = (props) => {
     React.useEffect(() => {
     }, [filterTags])
 
-    const doesGadget = (gadget) => {
+    const filterByTag = (gadget) => {
+        if (tag == '') {
+            return true;
+        }
         for (let i = 0; i < gadget.tags.length; i++) {
             if (gadget.tags[i].name.includes(tag)) {
                 return true;
@@ -57,10 +61,15 @@ const Search = (props) => {
         return false;
     }
 
+    const filterByName = (gadget) => {
+        if (gadget.name.includes(title)) {
+            return true;
+        }
+        return false;
+    }
 
     const gadgetsList = gadgets.map((gadget) => {
-        // add filter logic here
-        if (true) {
+        if (filterByName(gadget) && filterByTag(gadget)) {
             return (
                 <Gadget name={gadget.name} id={gadget.id} gadget={gadget} onClick={() => {
                     history.push('/edit/' + gadget.name)
@@ -79,19 +88,15 @@ const Search = (props) => {
             />
             <div className={classes['filter-container']}>
                 <Input
-                    onChange={(e) => { }}
+                    onChange={(e) => { setTitle(e) }}
                     image={titleICON}
-                    placeholder={'searh by title'}
+                    placeholder={'search by title'}
+                    value = {title}
                 />
                 <Input
-                    onChange={(e) => { }}
-                    image={dateICON}
-                    placeholder={'searh by date'}
-                />
-                <Input
-                    onChange={(e) => { setTag(e.target.value) }}
+                    onChange={(e) => { setTag(e) }}
                     image={tagICON}
-                    placeholder={'searh by tag'}
+                    placeholder={'search by tag'}
                     value={tag}
                 />
             </div>

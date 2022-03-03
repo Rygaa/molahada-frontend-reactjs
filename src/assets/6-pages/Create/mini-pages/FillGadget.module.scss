@@ -25,19 +25,47 @@
 }
 
 .name-section {
+    margin-top: 2rem;
 
-    // Placement
-    // HAHAHAHAHHA
-    // HAHAHAHAHHA
-    // HAHAHAHAHHA
-    // Styling
-    // HAHAHAHAHHA
-    // HAHAHAHAHHA
-    // HAHAHAHAHHA
+    > p {
+        color: $font-color1;
+        @include M4();
+    }
+
+    > div:nth-child(2) {
+
+        // Placement
+        width: 100%;
+        height: 1px;
+        margin-top: .5rem;
+        margin-bottom: 1rem;
+
+        // Styling
+        background-color: $stroke-color2;
+
+    }
 
 }
 
 .description-section {
+    margin-top: 2.5rem;
+    > p {
+        color: $font-color1;
+        @include M4();
+    }
+
+    > div:nth-child(2) {
+
+        // Placement
+        width: 100%;
+        height: 1px;
+        margin-top: .5rem;
+        margin-bottom: 1rem;
+
+        // Styling
+        background-color: $stroke-color2;
+
+    }
     > textarea {
 
         // Placement 
@@ -45,7 +73,6 @@
         width: 25rem;
         height: 15rem;
         margin-top: 1rem;
-        margin-bottom: 2rem;
 
         // Styling
         padding: 0;
@@ -68,8 +95,28 @@
 
 }
 .tags-section {
+    margin-top: 2.5rem;
+    // background-color: rgba(white, 15%);
+
+    > p {
+        color: $font-color1;
+        @include M4();
+    }
 
     > div:nth-child(2) {
+
+        // Placement
+        width: 100%;
+        height: 1px;
+        margin-top: .5rem;
+        margin-bottom: 1rem;
+
+        // Styling
+        background-color: $stroke-color2;
+
+    }
+
+    > div:nth-child(4) {
 
         // Placement
         display: flex;
@@ -94,6 +141,7 @@
 
 
 .links-section { 
+    margin-top: 2.5rem;
     display: flex;
     flex-direction: column;
 
