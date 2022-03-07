@@ -1,7 +1,8 @@
 import axios from "axios"
 import { userActions } from "./user-slice"
 import toast, { Toaster } from 'react-hot-toast';
-const url = 'http://localhost:4005'
+import { url } from "_globalVar/_ip"
+
 
 
 

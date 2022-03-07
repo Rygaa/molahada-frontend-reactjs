@@ -2,7 +2,7 @@ import axios from "axios"
 import { userActions } from "./user-slice"
 import toast, { Toaster } from 'react-hot-toast';
 import { gadgetsActions } from "./gadgets-slice";
-const url = 'http://localhost:4005'
+import {url} from "_globalVar/_ip"
 
 
 export const removeGadget = ({ jwtoken, gadgetId }) => {
