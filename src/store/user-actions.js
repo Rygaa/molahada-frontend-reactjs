@@ -49,7 +49,9 @@ export const signUp = ({ username, email, password, history }) => {
             return;
         }
         toast.success(message)
+        localStorage.setItem('jwtoken', data.jwtoken);
 
+        window.location.reload();
     }
 }
 

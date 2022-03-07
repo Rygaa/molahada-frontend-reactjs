@@ -17,6 +17,7 @@ const Signup = (props) => {
     const [username, setUsername] = React.useState('');
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
+    const [conditions, setConditions] = React.useState(false);
     const dispatch = useDispatch();
     const history = useHistory();
     const createAccountOnClick = (e) => {
@@ -33,7 +34,7 @@ const Signup = (props) => {
 
     const isSignInButtonDisabled = () => {
 
-        if (email == '' || password == '' || username == '') {
+        if (email == '' || password == '' || username == '' || conditions == false) {
             return true
         }
         return false;
@@ -68,7 +69,7 @@ const Signup = (props) => {
                 placeholder={'password'} 
                 type={'password'}
             />
-            <Checkbox onClick={() => {}}>
+            <Checkbox onClick={(status) => { setConditions(status) }} status={conditions}>
                 <p className={classes['Checkbox-Paragraph']}>
                     I agree to the <a href=''>Terms of Services</a> and <a href=''>Privacy Policy</a>
                 </p>

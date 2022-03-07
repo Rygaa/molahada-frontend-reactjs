@@ -58,7 +58,7 @@ const Login = (props) => {
                 placeholder={'password'}
                 type={'password'}
             />
-            <Checkbox onClick={(status) => { localStorage.setItem('remember-me', status) }}>
+            <Checkbox onClick={(status) => { localStorage.setItem('remember-me', status) }} status={localStorage.getItem('remember-me')}>
                 <p className={classes['Checkbox-Paragraph']}>
                     Remember me
                 </p>

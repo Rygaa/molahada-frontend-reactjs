@@ -73,13 +73,16 @@ const SidebarButton = (props) => {
 
     React.useEffect(() => {
         menuButtonRef.current.addEventListener("mouseenter", () => {
-            props.sidebarRef.current.style.width = '12.5rem'
-            setShowText(true);
+            if (props.sidebarRef) {
+                props.sidebarRef.current.style.width = '12.5rem'
+                setShowText(true);
+            }
         })
         menuButtonRef.current.addEventListener("mouseleave", () => {
-            props.sidebarRef.current.style.width = '6.25rem'
-            setShowText(false);
-
+            if (props.sidebarRef) {
+                props.sidebarRef.current.style.width = '6.25rem'
+                setShowText(false);
+            }
         })
     }, [])
 

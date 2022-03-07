@@ -2,10 +2,11 @@ import classes from 'assets/5-components/Checkbox.module.scss'
 import checkICON from 'images/check.png'
 import React, { useState } from 'react'
 const Checkbox = (props) => {
-    const [status, setStatus] = useState(localStorage.getItem('remember-me'));
+    const [status, setStatus] = useState(props.status);
 
     React.useEffect(() => {
         props.onClick(status);
+        console.log('clicked')
     }, [status])
 
     return (
