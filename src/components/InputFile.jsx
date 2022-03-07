@@ -2,7 +2,7 @@ import classes from 'assets/5-components/InputFile.module.scss'
 import * as React from 'react';
 import classnames from "classnames";
 import { useDispatch, useSelector } from "react-redux";
-const url = 'http://localhost:4005'
+const url = 'https://api.molahada.com'
 
 const InputFile = (props) => {
     const username = useSelector((state) => state.user.username)
