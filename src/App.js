@@ -39,7 +39,7 @@ const App = (props) => {
     if (isConnected) {
       history.push('/search')
     } else {
-      if (window.location.pathname != '/signup') {
+      if (window.location.pathname != '/signup' && window.location.pathname != '/login') {
         history.push('/login')
       }
     }
